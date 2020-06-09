@@ -13,6 +13,8 @@ basic implementation of the `Task` interface.
 
 class MyTask extends DefaultTask {}
 
+task myTask(type: MyTask)
+
 /*
 
 That's all there is to it to define a custom task type. Of course, since we
@@ -26,6 +28,7 @@ action that simply prints a string out to the console.
 */
 
 class HelloTask extends DefaultTask {
+
     @TaskAction
     void doAction() {
         println 'Hello World'
@@ -55,6 +58,8 @@ and setter methods.
 */
 
 class HelloNameTask extends DefaultTask {
+
+    @Input
     String firstName
 
     @TaskAction
@@ -71,7 +76,7 @@ console.
 */
 
 task helloName(type: HelloNameTask) {
-    firstName = 'Jeremy'
+    firstName 'Jeremy'
 }
 
 /*
